@@ -1,24 +1,52 @@
 #primary {
-    padding-block: 20px;
+  padding-block: 16px;
 
-    div {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+  div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-    div:nth-child(2) {
-        margin-inline: auto;
-    }
+  /* nesting css */
+  div:nth-child(2) {
+    margin-inline: auto;
+  }
 
-    div::nth-child(3) {
-        justify-self: end;
-    }
+  div:nth-child(3) {
+    justify-self: end;
+  }
 }
 
 #secondary {
-    padding-block: 14px;
-    border: 1px solid var(--stroke-color);
-    border-inline: none;
-    justify-content: space-between;
+  padding-block: 14px;
+  border: 1px solid var(--stroke-color);
+  border-inline: none;
+  margin-inline: -16px; /* compensa o padding do container */
+  padding-inline: 16px; /* mantém o conteúdo alinhado */
+
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+
+  & a {
+    text-wrap: nowrap;
+    color: var(--text-color-secondary);
+  }
+
+    & a:hover {
+        color: var(--brand-color-light);
+    }
+}
+
+@media (min-width: 1280px) {
+    #primary {
+        padding-block: 20px;
+    }
+
+    #secondary {
+        overflow-x: hidden;
+        margin-inline: 0; /* compensa o padding do container */
+        padding-inline: 0; /* mantém o conteúdo alinhado */
+    }
 }
